@@ -455,9 +455,9 @@ This API is used by authenticated user to change user channel id (such as email 
 ## Delete a Subscription (unsubscribing)
 
 ```
-DELETE /subscriptions/{id}?unsubscriptionCode={unsubscriptionCode}&additionalServices={additionalServices}&userChannelId={userChannelId}
+DELETE /subscriptions/{id}?unsubscriptionCode={unsubscriptionCode}&additionalServices[]={additionalServices}&userChannelId={userChannelId}
 or
-GET /subscriptions/{id}/unsubscribe?unsubscriptionCode={unsubscriptionCode}&additionalServices={additionalServices}&userChannelId={userChannelId}
+GET /subscriptions/{id}/unsubscribe?unsubscriptionCode={unsubscriptionCode}&additionalServices[]={additionalServices}&userChannelId={userChannelId}
 ```
 
 - inputs
@@ -475,8 +475,8 @@ GET /subscriptions/{id}/unsubscribe?unsubscriptionCode={unsubscriptionCode}&addi
     - parameter name: additionalServices
     - required: false
     - parameter type: query
-    - data type: string or array of strings. If the value is string _\_all_, then all services
-      the user subscribed on this _NotifyBC_ instance are included
+    - data type: array of strings. If there is only one item and its value is _\_all_, then all services
+      the user subscribed on this _NotifyBC_ instance are included. Supply multiple items by repeating this query parameter.
   - user channel id for extended validation
     - parameter name: userChannelId
     - required: false
