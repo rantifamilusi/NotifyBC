@@ -22,10 +22,9 @@ These are for the extra tidbits sometimes necessary to understand
      NotifyBC.
 :::
 
-<div class="note warning">
-  <h5>Warnings help you not blow things up</h5>
-  <p>Be aware of these messages if you wish to avoid certain death.</p>
-</div>
+::: danger Warnings help you not blow things up
+Be aware of these messages if you wish to avoid certain death.
+:::
 
 <div class="note unreleased">
   <h5>You'll see this by a feature that hasn't been released</h5>
