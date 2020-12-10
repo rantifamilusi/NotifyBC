@@ -12,14 +12,13 @@ The administrator API provides knowledge factor based authentication mechanism t
 </div>
 
 
-To enable knowledge factor based authentication, a super-admin manually calls *POST /administrators* API to create an admin user. Next, the super-admin calls *POST /administrators/login* API to login the admin user. If both calls are successful, the *POST /administrators/login* API returns an access token. The super-admin gives the access token to the client, who can make authenticated requests by supplying the access token in either *Authorization* HTTP header or *access_token* query parameter. 
+To enable knowledge factor based authentication, a super-admin manually calls *POST /administrators* API to create an admin user. Next, the super-admin calls *POST /administrators/login* API to login the admin user. If both calls are successful, the *POST /administrators/login* API returns an access token. The super-admin gives the access token to the client, who can make authenticated requests by supplying the access token in either *Authorization* HTTP header or *access_token* query parameter.
 
 More details on creating access token can be found [here](http://loopback.io/doc/en/lb3/Introduction-to-User-model-authentication.html). All occurrences of */Users* in the referenced doc should be interpreted as */administrators*, which is *NotifyBC*'s user model name.
 
-<div class="note">
-  <h5>ProTips™ Increase TTL</h5>
-  <p>By default TTL of an access token is set to 14 days by LoopBack. The default time makes sense if users can login themselves. However <i>NotifyBC</i> only allows super-admin to access Administrator API in order to reduce attack window, thus super-admin has to login on behalf of the user to obtain the access token. As a super-admin, you may want to bump up TTL significantly to reduce administrative overhead.</p>
-</div>
+::: tip ProTips™ Increase TTL
+By default TTL of an access token is set to 14 days by LoopBack. The default time makes sense if users can login themselves. However <i>NotifyBC</i> only allows super-admin to access Administrator API in order to reduce attack window, thus super-admin has to login on behalf of the user to obtain the access token. As a super-admin, you may want to bump up TTL significantly to reduce administrative overhead.
+:::
 
 
 For details and examples on making authenticated requests, see [here](http://loopback.io/doc/en/lb3/Making-authenticated-requests.html).

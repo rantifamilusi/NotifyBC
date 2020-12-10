@@ -15,7 +15,7 @@ For small-scale production deployment or for evaluation, both source code and do
 * deploying to OpenShift
 * setting up a load banalced app cluster from source code build, backed by mongodb.
 
-To setup a development environment in order to contribute to *NotifyBC*, 
+To setup a development environment in order to contribute to *NotifyBC*,
 installing from source code is preferred.
 
 ## Deploy Locally from Source Code
@@ -26,10 +26,10 @@ installing from source code is preferred.
   * [Node.js](https://nodejs.org)@>=6.9.1
 * Services
   * MongoDB, optional but recommended for production
-  * A standard SMTP server to deliver outgoing email, optional but recommended for production. You can use an existing organizational shared service, cloud-based service such as Amazon SES, or setting up your own SMTP server 
+  * A standard SMTP server to deliver outgoing email, optional but recommended for production. You can use an existing organizational shared service, cloud-based service such as Amazon SES, or setting up your own SMTP server
   * A tcp proxy server such as [nginx stream proxy](http://nginx.org/en/docs/stream/ngx_stream_proxy_module.html) if list-unsubscribe by email is needed and *NotifyBC* server cannot expose port 25 to internet
   * A SMS service provider account if needs to enable SMS channel. The supported service providers are
-    * Twilio (default) 
+    * Twilio (default)
   * SiteMinder, if need to allow authenticated user request
 * Network and Permissions
   * Minimum runtime firewall requirements:
@@ -38,29 +38,14 @@ installing from source code is preferred.
     * outbound to any on SMTP port 25 if using direct mail; for SMTP relay, outbound to your configured SMTP server and port only
     * inbound to listening port (3000 by default)from other authorized server ips
     * if *NotifyBC* instance will handle anonymous subscription from client browser, the listening port should be open to internet either directly or indirectly through a reverse proxy; If *NotifyBC* instance will only handle SiteMinder authenticated webapp requests, the listening port should NOT be open to internet. Instead, it should only open to SiteMinder web agent reverse proxy.
-  * If list-unsubscribe by email is needed, then one of the following must be met 
+  * If list-unsubscribe by email is needed, then one of the following must be met
     * *NotifyBC* can bind to port 25 opening to internet
-    * a tcp proxy server of which port 25 is open to internet. This proxy server can reach *NotifyBC* on a tcp port. 
+    * a tcp proxy server of which port 25 is open to internet. This proxy server can reach *NotifyBC* on a tcp port.
 
 ### Installation
-<div class="note">
-  <h5>ProTips™ install from behind firewall</h5>
-  <p>If you want to install on a server behind firewall which restricts internet connection, you can work around the firewall as long as you have access to a http(s) forward proxy server. Assuming the proxy server is http://my_proxy:8080 which proxies both http and https requests, to use it:</p>
-  <ul>
-    <li>For Linux, run
-        <p>export http_proxy=http://my_proxy:8080</p>
-        <p>export https_proxy=http://my_proxy:8080</p>
-        <p>git config --global url."https://".insteadOf git://</p>
-    </li>
-    <li>For Windows, run
-        <p>git config --global http.proxy http://my_proxy:8080</p>
-        <p>git config --global url."https://".insteadOf git://</p>
-        <p>npm config set proxy http://my_proxy:8080</p>
-        <p>npm i -g yarn</p>
-        <p>yarn config set proxy http://my_proxy:8080</p>
-    </li>
-  </ul>
-</div>
+::: tip ProTips™ install from behind firewall
+If you want to install on a server behind firewall which restricts internet connection, you can work around the firewall as long as you have access to a http(s) forward proxy server. Assuming the proxy server is http://my_proxy:8080 which proxies both http and https requests, to use it:
+:::
 
 run following commands
 
@@ -112,7 +97,7 @@ notifyBC
 If successful, similar output is displayed as in source code installation.
 
 ## Deploy to OpenShift
-*NotifyBC* supports deployment to OpenShift Origin of minimum version 1.5, or other compatible platforms such as OpenShift Container Platform of matching version. [OpenShift instant app templates](https://github.com/bcgov/MyGovBC-notification-server/blob/master/.opensift-templates) have been created to facilitate build and deployment. This template adopts [source-to-image strategy](https://docs.openshift.org/latest/dev_guide/builds.html#using-secrets-s2i-strategy) with [binary source](https://docs.openshift.org/latest/dev_guide/builds.html#binary-source) input and supports [incremental builds](https://docs.openshift.org/latest/dev_guide/builds.html#incremental-builds). 
+*NotifyBC* supports deployment to OpenShift Origin of minimum version 1.5, or other compatible platforms such as OpenShift Container Platform of matching version. [OpenShift instant app templates](https://github.com/bcgov/MyGovBC-notification-server/blob/master/.opensift-templates) have been created to facilitate build and deployment. This template adopts [source-to-image strategy](https://docs.openshift.org/latest/dev_guide/builds.html#using-secrets-s2i-strategy) with [binary source](https://docs.openshift.org/latest/dev_guide/builds.html#binary-source) input and supports [incremental builds](https://docs.openshift.org/latest/dev_guide/builds.html#incremental-builds).
 
 To deploy to OpenShift, you need to have access to relevant OpenShift projects with minimum edit role. This implies you know and have access to OpenShift web console as identified by *\<openshift-console-url\>* below.
 
@@ -126,7 +111,7 @@ The deployment can be initiated from localhost or automated by CI service such a
   * git
   * [OpenShift CLI](https://docs.openshift.org/latest/cli_reference/index.html)
 
-If using Jenkins, all the software are pre-installed on OpenShift provided Jenkins instant-app template so it is the preferred CI environment. Instructions below assumes OpenShift Jenkins is used. OpenShift Jenkins should be created in project *\<yourprojectname-tools\>*.  
+If using Jenkins, all the software are pre-installed on OpenShift provided Jenkins instant-app template so it is the preferred CI environment. Instructions below assumes OpenShift Jenkins is used. OpenShift Jenkins should be created in project *\<yourprojectname-tools\>*.
 
 ### Hosting Environment Setup
 
@@ -150,12 +135,11 @@ If using Jenkins, all the software are pre-installed on OpenShift provided Jenki
    ```
    MongoDB cluster created by this template uses stateful sets. As of OpenShift 1.5, stateful set is in technology preview phase so use the feature with precaution.
 2. create OpenShift apps by clicking *Add to Project* in web console of respective projects, select JavaScript in languages catalog, and click either *notify-bc-build* or *notify-bc* template. Adjust parameters as you see fit.
-3. (optional) create instance-specific [configuration](../config-overview/) files by modifying configMap *notify-bc*. To do so, in web console of a runtime environment project, click *Resources > Config Maps > notify-bc > Actions > Edit*. Each config file corresponds to an item in configMap with key being the file name. For example, to create config file *config.local.json*, create an item with key *config.local.json*. 
+3. (optional) create instance-specific [configuration](../config-overview/) files by modifying configMap *notify-bc*. To do so, in web console of a runtime environment project, click *Resources > Config Maps > notify-bc > Actions > Edit*. Each config file corresponds to an item in configMap with key being the file name. For example, to create config file *config.local.json*, create an item with key *config.local.json*.
 
-<div class="note">
-  <h5>ProTips™ backup config files</h5>
-  <p>Backup config files to a private secured SCM outside of OpenShift is highly recommended, especially for production environment.</p>
-</div>
+::: tip ProTips™ backup config files
+Backup config files to a private secured SCM outside of OpenShift is highly recommended, especially for production environment.
+:::
 
 ### Build
 To build runtime image manually from localhost, run
@@ -165,7 +149,7 @@ To build runtime image manually from localhost, run
 ```
 If build is successful, you will find image *\<yourprojectname-tools\>/notify-bc:latest* is updated.
 
-To initiate the build from Jenkins, create a new Freestyle project. Set *Source Code Management* to Git repository https://github.com/bcgov/MyGovBC-notification-server.git and add a *Execute Shell* build step with the command. 
+To initiate the build from Jenkins, create a new Freestyle project. Set *Source Code Management* to Git repository https://github.com/bcgov/MyGovBC-notification-server.git and add a *Execute Shell* build step with the command.
 
 Proper authorization is needed for Jenkins to access OpenShift. The service account used by Jenkins has to be granted edit role in all projects by running
 
@@ -191,7 +175,7 @@ Deployment is achieved through image tagging. This guarantees the image deployed
 ```
 If the deployment is successful, you can launch *NotifyBC* from the URL provided in *\<yourprojectname-\<env\>>* project.
 
-To initiate the deployment from Jenkins, add the above command to the build command in Jenkins. 
+To initiate the deployment from Jenkins, add the above command to the build command in Jenkins.
 
 ### Change Propagation
 To promote runtime image from one environment to another, for example from *dev* to *test*, run

@@ -13,10 +13,9 @@ development of _NotifyBC_ itself.
 
 Throughout this guide there are a number of small-but-handy pieces of information that can make using _NotifyBC_ easier, more interesting, and less hazardous. Here’s what to look out for.
 
-<div class="note">
-  <h5>ProTips™ help you get more from NotifyBC</h5>
-  <p>These are tips and tricks that will help you be a NotifyBC wizard!</p>
-</div>
+::: tip ProTips™ help you get more from NotifyBC
+These are tips and tricks that will help you be a NotifyBC wizard!
+:::
 
 <div class="note info">
   <h5>Notes are handy pieces of information</h5>

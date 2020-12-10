@@ -4,10 +4,10 @@ title: Notification
 permalink: /docs/config-notification/
 ---
 
-Configs in this section customize the handling of notification request or generating notifications from RSS feeds.  They are all sub-properties of config object *notification*. Service-agnostic  configs are static and service-dependent configs are dynamic. 
+Configs in this section customize the handling of notification request or generating notifications from RSS feeds.  They are all sub-properties of config object *notification*. Service-agnostic  configs are static and service-dependent configs are dynamic.
 
 ## RSS Feeds
-*NotifyBC* can generate broadcast push notifications automatically by polling RSS feeds periodically and detect changes by comparing with an internally maintained history list. The polling frequency, RSS url, RSS item change detection criteria, and message template can be defined in dynamic configs.  
+*NotifyBC* can generate broadcast push notifications automatically by polling RSS feeds periodically and detect changes by comparing with an internally maintained history list. The polling frequency, RSS url, RSS item change detection criteria, and message template can be defined in dynamic configs.
 
 <div class="note warning">
   <h5>Only first page is retrived for paginated RSS feeds</h5>
@@ -53,15 +53,15 @@ The config items in the *value* field are
   * <a name="timeSpec"></a>timeSpec: RSS poll frequency, a space separated fields conformed to [unix crontab format](https://www.freebsd.org/cgi/man.cgi?crontab(5)) with an optional left-most seconds field. See [allowed ranges](https://github.com/kelektiv/node-cron#cron-ranges) of each field
   * itemKeyField: rss item's unique key field to identify new items. By default *guid*
   * outdatedItemRetentionGenerations: number of last consecutive polls from which results an item has to be absent before the item can be removed from the history list. This config is designed to prevent multiple notifications triggered by the same item because RSS poll returns inconsistent results, usually due to a combination of pagination and lack of sorting. By default 1, meaning the history list only keeps the last poll result
-  * includeUpdatedItems: whether to notify also updated items or just new items. By default *false*  
+  * includeUpdatedItems: whether to notify also updated items or just new items. By default *false*
   * fieldsToCheckForUpdate: list of fields to check for updates if *includeUpdatedItems* is *true*. By default *["pubDate"]*
 * httpHost: the http protocol, host and port used by [mail merge](../overview/#mail-merge). If missing, the value is auto-populated based on the REST request that creates this config item.
 * messageTemplates: channel-specific message template supporting dynamic token as shown. Message template fields is same as those in [notification api](../api-notification/#field-message)
 
 ## Broadcast Push Notification Task Concurrency
-To achieve horizontal scaling, when a broadcast push notification request, hereby known as original request, is received, *NotifyBC* divides subscribers into chunks and generates a HTTP sub-request for each chunk.  The original request supervises the execution of  sub-requests. The chunk size is defined by config *broadcastSubscriberChunkSize*. All subscribers in a sub-request chunk are processed concurrently when the sub-requests are submitted. 
+To achieve horizontal scaling, when a broadcast push notification request, hereby known as original request, is received, *NotifyBC* divides subscribers into chunks and generates a HTTP sub-request for each chunk.  The original request supervises the execution of  sub-requests. The chunk size is defined by config *broadcastSubscriberChunkSize*. All subscribers in a sub-request chunk are processed concurrently when the sub-requests are submitted.
 
-The orginal request submits sub-requests back to (preferably load-balanced) *NotifyBC* server cluster for processing. Sub-request submission is throttled by config *broadcastSubRequestBatchSize*. *broadcastSubRequestBatchSize* defines the upper limit of the number of Sub-requests that can be processed at any given time. 
+The orginal request submits sub-requests back to (preferably load-balanced) *NotifyBC* server cluster for processing. Sub-request submission is throttled by config *broadcastSubRequestBatchSize*. *broadcastSubRequestBatchSize* defines the upper limit of the number of Sub-requests that can be processed at any given time.
 
 As an example, assuming the total number of subscribers for a notification is 1,000,000, *broadcastSubscriberChunkSize* is 1,000 and *broadcastSubRequestBatchSize* is 10, *NotifyBC* will divide the 1M subscribers into 1,000 chunks and generates 1,000 sub-requests, one for each chunk. The 1,000 sub-requests will be submitted back to *NotifyBC* cluster to be processed. The original request will ensure at most 10 sub-requests are submitted and being processed at any given time. In fact, the only time concurrency is less than 10 is near the end of the task when remaining sub-requests is less than 10. When a sub-request is received by *NotifyBC* cluster, all 1,000 subscribers are processed concurrently. Suppose each sub-request (i.e. 1,000 subscribers) takes 1 minute to process on average, then the total time to dispatch notifications to 1M subscribers takes 1,000/10 = 100min, or 1hr40min.
 
@@ -78,12 +78,11 @@ The default value for *broadcastSubscriberChunkSize* and *broadcastSubRequestBat
 
 To customize, create the config with updated value in file */server/config.local.js*.
 
-If total number of subscribers is less than *broadcastSubscriberChunkSize*, then no sub-requests are spawned. Instead, the main request dispatches all notifications. 
+If total number of subscribers is less than *broadcastSubscriberChunkSize*, then no sub-requests are spawned. Instead, the main request dispatches all notifications.
 
-<div class="note">
-  <h5>ProTips™ How to determine the optimal value for <i>broadcastSubscriberChunkSize</i> and <i>broadcastSubRequestBatchSize</i>?</h5>
-  <p><i>broadcastSubscriberChunkSize</i> is determined by the concurrency capability of the downstream message handlers such as SMTP server or SMS service provider. <i>broadcastSubRequestBatchSize</i> is determined by the size of <i>NotifyBC</i> cluster. As a rule of thumb, set <i>broadcastSubRequestBatchSize</i> equal to the number of non-master nodes in <i>NotifyBC</i> cluster.</p>
-</div>
+::: tip ProTips™ How to determine the optimal value for <i>broadcastSubscriberChunkSize</i> and <i>broadcastSubRequestBatchSize</i>?
+<i>broadcastSubscriberChunkSize</i> is determined by the concurrency capability of the downstream message handlers such as SMTP server or SMS service provider. <i>broadcastSubRequestBatchSize</i> is determined by the size of <i>NotifyBC</i> cluster. As a rule of thumb, set <i>broadcastSubRequestBatchSize</i> equal to the number of non-master nodes in <i>NotifyBC</i> cluster.
+:::
 
 ## Broadcast Push Notification Custom Filter Functions
 <div class="note info">
@@ -123,15 +122,14 @@ module.exports = {
 ```
 Consult jmespath.js source code on the [functionTable syntax](https://github.com/f-w/jmespath.js/blob/master/jmespath.js#L1127) and [type constants](https://github.com/f-w/jmespath.js/blob/master/jmespath.js#L132) used by above code. Note the function can use any NodeJS modules (*[lodash](https://lodash.com/)* in this case).
 
-<div class="note">
-  <h5>ProTips™ install additional NodeJS modules</h5>
-  <p>The recommended way to install additional NodeJS modules is by running command <i><a href="https://docs.npmjs.com/cli/install">npm install &lt;your_module&gt;</a></i> from the directory one level above <i>NotifyBC</i> root. For example, if 
+::: tip ProTips™ install additional NodeJS modules
+The recommended way to install additional NodeJS modules is by running command <i><a href="https://docs.npmjs.com/cli/install">npm install &lt;your_module&gt;</a></i> from the directory one level above <i>NotifyBC</i> root. For example, if
   <i>NotifyBC</i> is installed on <i>/data/notifyBC</i>, then run the command from directory <i>/data</i>. The command will then install the module to <i>/data/node_modules/&lt;your_module&gt;</i>.
-  </p>
-</div>
+
+:::
 
 ## Log Successful Broadcast Dispatches
-To optimize performance, by default only failed broadcast notification dispatches 
+To optimize performance, by default only failed broadcast notification dispatches
 are logged in the notification record. If you want to log successful dispatches too, set config *logSuccessfulBroadcastDispatches* to *true* in file */server/config.local.js*
 
 ```js
