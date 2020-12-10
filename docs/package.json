@@ -1,5 +1,5 @@
 {
-  "name": "NotifyBC",
+  "name": "notify-bc",
   "version": "0.0.1",
   "description": "A versatile notification API server",
   "main": "index.js",

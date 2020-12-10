@@ -5,7 +5,7 @@ module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: 'Vuepress Docs Boilerplate',
+  title: 'NotifyBC',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
@@ -29,30 +29,27 @@ module.exports = {
    */
   themeConfig: {
     repo: '',
+    logo: '/img/logo.svg',
     editLinks: false,
     docsDir: '',
     editLinkText: '',
     lastUpdated: false,
     nav: [
       {
-        text: 'Guide',
-        link: '/guide/',
+        text: 'Home',
+        link: '/',
       },
       {
-        text: 'Config',
-        link: '/config/',
-      },
-      {
-        text: 'VuePress',
-        link: 'https://v1.vuepress.vuejs.org',
+        text: 'Docs',
+        link: '/docs/',
       },
     ],
     sidebar: {
-      '/guide/': [
+      '/docs/': [
         {
-          title: 'Guide',
+          title: 'Docs',
           collapsable: false,
-          children: ['', 'using-vue'],
+          children: [''],
         },
       ],
     },

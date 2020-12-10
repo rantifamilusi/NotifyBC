@@ -1,7 +1,6 @@
 ---
 home: true
 heroImage: /img/logo.svg
-tagline: A versatile notification API server
 actionText: Quick Start →
 actionLink: /guide/
 features:
