@@ -17,11 +17,10 @@ Throughout this guide there are a number of small-but-handy pieces of informatio
 These are tips and tricks that will help you be a NotifyBC wizard!
 :::
 
-<div class="note info">
-  <h5>Notes are handy pieces of information</h5>
-  <p>These are for the extra tidbits sometimes necessary to understand
-     NotifyBC.</p>
-</div>
+::: warning Notes are handy pieces of information
+These are for the extra tidbits sometimes necessary to understand
+     NotifyBC.
+:::
 
 <div class="note warning">
   <h5>Warnings help you not blow things up</h5>

@@ -58,10 +58,9 @@ permalink: /docs/overview/
 #### dynamic tokens
 If a notification request contains field *data* of type *object*, *NotifyBC* also substitutes dynamic tokens, which are strings enclosed in {} but don't match static tokens above, with corresponding sub-field of *data* if available. For example, if the string *{description}* appears in email body, it is replaced with field *data.description* of the notification request if populated.
 
-<div class="note info">
-  <h5>Notification by RSS feeds relies on dynamic token</h5>
-  <p>A notification created by RSS feeds relies on dynamic token to supply the context to message template. In this case the <i>data</i> field contains the RSS item.</p>
-</div>
+::: warning Notification by RSS feeds relies on dynamic token
+A notification created by RSS feeds relies on dynamic token to supply the context to message template. In this case the <i>data</i> field contains the RSS item.
+:::
 
 ## Architecture
 

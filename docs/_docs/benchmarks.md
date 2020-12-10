@@ -4,17 +4,16 @@ title: Benchmarks
 permalink: /docs/benchmarks/
 ---
 
-<div class="note info">
-  <h5>tl;dr</h5>
-  <p>A <i>NotifyBC</i> server node can deliver 1 million emails in as little as 1 hour to a SMTP server node. SMTP server node's disk I/O is the bottleneck in such case. Throughput can be improved through horizontal scaling.</p>
-</div>
+::: warning tl;dr
+A <i>NotifyBC</i> server node can deliver 1 million emails in as little as 1 hour to a SMTP server node. SMTP server node's disk I/O is the bottleneck in such case. Throughput can be improved through horizontal scaling.
+:::
 
-When *NotifyBC* is used to deliver broadcast push notifications to a large number of subscribers, probably the most important benchmark is throughput. The benchmark is especially critical if a latency cap is desired. To facilitate capacity planning, load testing on the email channel has been conducted. The test environment, procedure, results and performance tuning advices are provided hereafter. 
+When *NotifyBC* is used to deliver broadcast push notifications to a large number of subscribers, probably the most important benchmark is throughput. The benchmark is especially critical if a latency cap is desired. To facilitate capacity planning, load testing on the email channel has been conducted. The test environment, procedure, results and performance tuning advices are provided hereafter.
 
 ## Environment
 
 ### Hardware
-Two computers, connected by 1Gbps LAN, are used to host 
+Two computers, connected by 1Gbps LAN, are used to host
 
 * *NotifyBC*
   * Mac Mini Late 2012 model
@@ -53,7 +52,7 @@ The test was performed in August 2017. Unless otherwise specified, the versions 
 1. update or create file */server/config.local.js* through [configMap](../installation/#update-configuration-files). Add sections for SMTP server and a custom filter funtion
 
    ```
-   var _ = require('lodash')    
+   var _ = require('lodash')
    module.exports = {
      ...
      smtp: {
