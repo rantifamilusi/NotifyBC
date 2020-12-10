@@ -28,7 +28,7 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
    */
   themeConfig: {
-    repo: '',
+    repo: 'f-w/NotifyBC',
     logo: '/img/logo.svg',
     editLinks: false,
     docsDir: '',
@@ -47,9 +47,14 @@ module.exports = {
     sidebar: {
       '/docs/': [
         {
-          title: 'Docs',
+          title: 'Getting Started',
           collapsable: false,
-          children: [''],
+          children: ['getting-started/'],
+        },
+        {
+          title: 'Configuration',
+          collapsable: false,
+          children: ['configuration/'],
         },
       ],
     },

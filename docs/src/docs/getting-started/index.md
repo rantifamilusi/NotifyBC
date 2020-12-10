@@ -1,17 +1,17 @@
 ---
 layout: docs
 title: Welcome
-permalink: /docs/home/
+permalink: /docs/
 redirect_from: /docs/index.html
 ---
 
-
-This site aims to be a comprehensive guide to *NotifyBC*. We’ll cover topics such
+This site aims to be a comprehensive guide to _NotifyBC_. We’ll cover topics such
 as getting your instance up and running, interacting with browser or other server components, deployment, and give you some advice on participating in the future
-development of *NotifyBC* itself.
+development of _NotifyBC_ itself.
 
 ## Helpful Hints
-Throughout this guide there are a number of small-but-handy pieces of information that can make using *NotifyBC* easier, more interesting, and less hazardous. Here’s what to look out for.
+
+Throughout this guide there are a number of small-but-handy pieces of information that can make using _NotifyBC_ easier, more interesting, and less hazardous. Here’s what to look out for.
 
 <div class="note">
   <h5>ProTips™ help you get more from NotifyBC</h5>
@@ -35,8 +35,7 @@ Throughout this guide there are a number of small-but-handy pieces of informatio
     are not yet released.</p>
 </div>
 
-
 If you come across anything along the way that we haven’t covered, or if you
-know of a tip you think others would find handy, please [file an
-issue](https://github.com/{{ site.repository }}/issues/new) and we’ll see about
+know of a tip you think others would find handy, please <a target="_blank" rel="noopener noreferrer" :href="'https://github.com/'+$site.themeConfig.repo+'/issues/new'">file an
+issue</a> and we’ll see about
 including it in this guide.
