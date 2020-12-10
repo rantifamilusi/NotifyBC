@@ -26,11 +26,7 @@ These are for the extra tidbits sometimes necessary to understand
 Be aware of these messages if you wish to avoid certain death.
 :::
 
-<div class="note unreleased">
-  <h5>You'll see this by a feature that hasn't been released</h5>
-  <p>Some pieces of this website are for future versions of NotifyBC that
-    are not yet released.</p>
-</div>
+
 
 If you come across anything along the way that we haven’t covered, or if you
 know of a tip you think others would find handy, please <a target="_blank" rel="noopener noreferrer" :href="'https://github.com/'+$site.themeConfig.repo+'/issues/new'">file an
