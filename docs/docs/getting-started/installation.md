@@ -51,7 +51,7 @@ run following commands
 
 ```sh
 ~ $ git clone \
-https://github.com/bcgov/MyGovBC-notification-server.git \
+https://github.com/bcgov/NotifyBC.git \
 notifyBC
 ~ $ cd notifyBC
 ~/notifyBC $ npm i -g yarn && yarn install
@@ -87,7 +87,7 @@ If you have git and Docker installed, you can run following command to deploy *N
 
 ```sh
 ~ $ git clone \
-https://github.com/bcgov/MyGovBC-notification-server.git \
+https://github.com/bcgov/NotifyBC.git \
 notifyBC
 ~ $ cd notifyBC
 ~ $ docker build -t notify-bc .
@@ -97,7 +97,7 @@ notifyBC
 If successful, similar output is displayed as in source code installation.
 
 ## Deploy to OpenShift
-*NotifyBC* supports deployment to OpenShift Origin of minimum version 1.5, or other compatible platforms such as OpenShift Container Platform of matching version. [OpenShift instant app templates](https://github.com/bcgov/MyGovBC-notification-server/blob/master/.opensift-templates) have been created to facilitate build and deployment. This template adopts [source-to-image strategy](https://docs.openshift.org/latest/dev_guide/builds.html#using-secrets-s2i-strategy) with [binary source](https://docs.openshift.org/latest/dev_guide/builds.html#binary-source) input and supports [incremental builds](https://docs.openshift.org/latest/dev_guide/builds.html#incremental-builds).
+*NotifyBC* supports deployment to OpenShift Origin of minimum version 1.5, or other compatible platforms such as OpenShift Container Platform of matching version. [OpenShift instant app templates](https://github.com/bcgov/NotifyBC/blob/master/.opensift-templates) have been created to facilitate build and deployment. This template adopts [source-to-image strategy](https://docs.openshift.org/latest/dev_guide/builds.html#using-secrets-s2i-strategy) with [binary source](https://docs.openshift.org/latest/dev_guide/builds.html#binary-source) input and supports [incremental builds](https://docs.openshift.org/latest/dev_guide/builds.html#incremental-builds).
 
 To deploy to OpenShift, you need to have access to relevant OpenShift projects with minimum edit role. This implies you know and have access to OpenShift web console as identified by *\<openshift-console-url\>* below.
 
@@ -119,7 +119,7 @@ If using Jenkins, all the software are pre-installed on OpenShift provided Jenki
 
    ```bash
    ~ $ git clone \
-   https://github.com/bcgov/MyGovBC-notification-server.git \
+   https://github.com/bcgov/NotifyBC.git \
    notifyBC
    ~ $ cd notifyBC
    ~ $ oc login -u <username> -p <password> <openshift-console-url>
@@ -149,7 +149,7 @@ To build runtime image manually from localhost, run
 ```
 If build is successful, you will find image *\<yourprojectname-tools\>/notify-bc:latest* is updated.
 
-To initiate the build from Jenkins, create a new Freestyle project. Set *Source Code Management* to Git repository https://github.com/bcgov/MyGovBC-notification-server.git and add a *Execute Shell* build step with the command.
+To initiate the build from Jenkins, create a new Freestyle project. Set *Source Code Management* to Git repository https://github.com/bcgov/NotifyBC.git and add a *Execute Shell* build step with the command.
 
 Proper authorization is needed for Jenkins to access OpenShift. The service account used by Jenkins has to be granted edit role in all projects by running
 
@@ -209,8 +209,8 @@ Configuration file: .../notifyBC/docs/_config.yml
                     done in 3.971 seconds.
  Auto-regeneration: enabled for '.../notifyBC/docs'
 Configuration file: .../notifyBC/docs/_config.yml
-    Server address: http://127.0.0.1:4000/MyGovBC-notification-server/
+    Server address: http://127.0.0.1:4000/NotifyBC/
   Server running... press ctrl-c to stop.
 ```
 
-You can now browse to the local docs site <a href="http://127.0.0.1:4000/MyGovBC-notification-server/" target="_blank">http://127.0.0.1:4000/MyGovBC-notification-server/</a>
+You can now browse to the local docs site <a href="http://127.0.0.1:4000/NotifyBC/" target="_blank">http://127.0.0.1:4000/NotifyBC/</a>

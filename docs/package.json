@@ -7,7 +7,7 @@
     "name": "Fred Wen",
     "email": "fred.wen@gov.bc.ca"
   },
-  "repository": "https://github.com/f-w/NotifyBC",
+  "repository": "https://github.com/bcgov/NotifyBC",
   "scripts": {
     "dev": "vuepress dev",
     "build": "vuepress build"

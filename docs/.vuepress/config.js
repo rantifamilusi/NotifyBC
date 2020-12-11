@@ -28,7 +28,7 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
    */
   themeConfig: {
-    repo: 'f-w/NotifyBC',
+    repo: 'bcgov/NotifyBC',
     logo: '/img/logo.svg',
     editLinks: false,
     docsDir: '',
