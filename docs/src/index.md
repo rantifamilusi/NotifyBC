@@ -2,13 +2,32 @@
 home: true
 heroImage: /img/logo.svg
 actionText: Quick Start →
-actionLink: /guide/
+actionLink: /docs/quickstart/
 features:
-  - title: Feature 1 Title
-    details: Feature 1 Description
-  - title: Feature 2 Title
-    details: Feature 2 Description
-  - title: Feature 3 Title
-    details: Feature 3 Description
-footer: Made by Fred Wen with ❤️
+  - title: Versatile
+    details: >
+      <ul>
+        <li>Anonymous or CA SiteMinder authenticated subscriptions</li>
+        <li>Push and in-app pull notifications</li>
+        <li>Email and SMS push notification channels</li>
+        <li>Unicast and broadcast message types</li>
+        <li>User specifiable filter rules</li>
+        <li>Notification auto-gen from RSS</li>
+      </ul>
+  - title: Non-intrusive
+    details: >
+      <ul>
+        <li>Handles common backend business logic only, allowing site developer implement user subscriptions or display
+          in-app notifications using UI widgets native to the site.
+        </li>
+        <li>Loose coupling - interacts with user browser or other server components through RESTful API.
+        </li>
+      </ul>
+  - title: Microservice
+    details: >
+      Containerized deployment to PAAS such as OpenShift.
+      No need for complex enterprise-wide shared service. Better
+      meet privacy mandates.
+footer: >
+  The contents of this website are <br />&copy;&nbsp;2020-present under the terms of the <a href="https://github.com/bcgov/NotifyBC/blob/master/LICENSE">Apache&nbsp;License, Version 2.0</a>.
 ---

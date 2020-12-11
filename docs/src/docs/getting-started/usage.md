@@ -11,8 +11,8 @@ After [installing](../installation) _NotifyBC_, you can start exploring _NotifyB
 
 Furthermore, to get results of an authenticated user, do one of the following
 
-- access the API via a SiteMinder proxy if you have configured SiteMinder properly
-- use a tool such as _curl_ that allows to specify custom headers, and supply SiteMinder header _SM_USER_:
+* access the API via a SiteMinder proxy if you have configured SiteMinder properly
+* use a tool such as *curl* that allows to specify custom headers, and supply SiteMinder header *SM_USER*:
 
 ```sh
  $ curl -X GET --header "Accept: application/json" \

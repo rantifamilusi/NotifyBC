@@ -26,15 +26,13 @@
         class="feature"
       >
         <h2>{{ feature.title }}</h2>
-        <p>{{ feature.details }}</p>
+        <p v-html="feature.details"></p>
       </div>
     </div>
 
     <Content class="theme-default-content custom" />
 
-    <div v-if="data.footer" class="footer">
-      {{ data.footer }}
-    </div>
+    <div v-if="data.footer" class="footer" v-html="data.footer"></div>
   </main>
 </template>
 

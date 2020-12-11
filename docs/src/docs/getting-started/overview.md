@@ -45,7 +45,7 @@ permalink: /docs/overview/
 * {subscription_confirmation_url}
 * {subscription_confirmation_code}
 * {service_name}
-* {http_host} - http host in the form *http(s)://\<host_name\>:\<port\>*. The value is obtained from the http request that triggers the message
+* {http_host} - http host in the form *http(s): //\<host_name\>:\<port\>*. The value is obtained from the http request that triggers the message
 * {rest_api_root} - configured Loopback [Root URI of REST API](https://loopback.io/doc/en/lb3/config.json.html#top-level-properties)
 * {subscription_id}
 * anonymous unsubscription related tokens
@@ -90,11 +90,11 @@ An admin request carries full authorization whereas user request has limited acc
 The result of an API call to the same end point may differ depending on the request type. For example, the call *GET /notifications* without a filter will return all notifications to all users for an admin request, but only non-deleted, non-expired in-app notifications for authenticated user request, and forbidden for anonymous user request. Sometimes it is desirable for a request from admin ip list, which would normally be admin request, to be voluntarily downgraded to user request in order to take advantage of predefined filters such as the ones described above. This can be achieved by adding one of the HTTP headers listed above to the request. This is also why admin request is not  determined by ip or access token alone.
 
 The way *NotifyBC* interacts with other components is diagrammed below.
-![architecture diagram]({{site.baseurl}}/img/architecture.png)
+![architecture diagram](/img/architecture.png)
 
 ## Application Framework
-*NotifyBC* is created on Node.js [LoopBack](https://loopback.io/). Contributors to source code of *NotifyBC* should be familiar with LoopBack. [LoopBack Docs](https://docs.strongloop.com/display/public/LB/LoopBack) serves a good complement to this documentation.
+*NotifyBC* is created on Node.js [LoopBack](https://loopback.io/). Contributors to source code of *NotifyBC* should be familiar with LoopBack. [LoopBack Docs](https://loopback.io/doc/en/lb3) serves a good complement to this documentation.
 
 ::: tip ProTips™ familiarize LoopBack
-Most of NotifyBC code was writen according to LoopBack docs, especially section <a href="https://docs.strongloop.com/display/public/LB/Adding+logic+to+models">adding logic to models</a>.
+Most of NotifyBC code was writen according to LoopBack docs, especially section [adding logic to models](https://loopback.io/doc/en/lb3/Adding-logic-to-models.html).
 :::

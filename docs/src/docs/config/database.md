@@ -18,5 +18,5 @@ By default *NotifyBC* uses in-memory database backed up by file in */server/data
 }
 ```
 
-See [LoopBack MongoDB data source](https://docs.strongloop.com/display/public/LB/MongoDB+connector#MongoDBconnector-CreatingaMongoDBdatasource) for more configurable properties.
+See [LoopBack MongoDB data source](https://loopback.io/doc/en/lb3/MongoDB-connector.html#MongoDBconnector-CreatingaMongoDBdatasource) for more configurable properties.
 
