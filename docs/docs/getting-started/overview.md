@@ -90,7 +90,7 @@ An admin request carries full authorization whereas user request has limited acc
 The result of an API call to the same end point may differ depending on the request type. For example, the call *GET /notifications* without a filter will return all notifications to all users for an admin request, but only non-deleted, non-expired in-app notifications for authenticated user request, and forbidden for anonymous user request. Sometimes it is desirable for a request from admin ip list, which would normally be admin request, to be voluntarily downgraded to user request in order to take advantage of predefined filters such as the ones described above. This can be achieved by adding one of the HTTP headers listed above to the request. This is also why admin request is not  determined by ip or access token alone.
 
 The way *NotifyBC* interacts with other components is diagrammed below.
-![architecture diagram](/img/architecture.png)
+<img :src="$withBase('/img/architecture.png')" alt="architecture diagram">
 
 ## Application Framework
 *NotifyBC* is created on Node.js [LoopBack](https://loopback.io/). Contributors to source code of *NotifyBC* should be familiar with LoopBack. [LoopBack Docs](https://loopback.io/doc/en/lb3) serves a good complement to this documentation.
