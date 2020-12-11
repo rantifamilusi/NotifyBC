@@ -31,7 +31,7 @@
       "name": "Launch Doc",
       "cwd": "${workspaceFolder}/docs",
       "program": "node_modules/vuepress/cli.js",
-      "args": ["dev", "src"],
+      "args": ["dev"],
       "console": "internalConsole"
     }
   ]
