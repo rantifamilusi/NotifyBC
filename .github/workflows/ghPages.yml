@@ -21,5 +21,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages # The branch the action should deploy to.
           FOLDER: docs/.vuepress/dist # The folder the action should deploy.
-          TARGET_FOLDER: version/2
+          TARGET_FOLDER: version/2-pre-alpha
           CLEAN: true # Automatically remove deleted files from the deploy branch
