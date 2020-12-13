@@ -1,7 +1,7 @@
-const {description} = require('../../package');
+const {description} = require('../package');
 
 module.exports = {
-  base: '/NotifyBC/version/2/',
+  base: '/NotifyBC/',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
