@@ -13,7 +13,7 @@ permalink: /docs/installation/
 For small-scale production deployment or for evaluation, both source code and docker container will do. For large-scale production deployment that requires horizontal scalability, the recommendation is one of
 
 * deploying to OpenShift
-* setting up a load banalced app cluster from source code build, backed by mongodb.
+* setting up a load balanced app cluster from source code build, backed by mongodb.
 
 To setup a development environment in order to contribute to *NotifyBC*,
 installing from source code is preferred.
@@ -36,7 +36,7 @@ installing from source code is preferred.
     * outbound to your ISP DNS server
     * outbound to any on port 80, 443 and 22 in order to run build scripts and send SMS messages
     * outbound to any on SMTP port 25 if using direct mail; for SMTP relay, outbound to your configured SMTP server and port only
-    * inbound to listening port (3000 by default)from other authorized server ips
+    * inbound to listening port (3000 by default) from other authorized server ips
     * if *NotifyBC* instance will handle anonymous subscription from client browser, the listening port should be open to internet either directly or indirectly through a reverse proxy; If *NotifyBC* instance will only handle SiteMinder authenticated webapp requests, the listening port should NOT be open to internet. Instead, it should only open to SiteMinder web agent reverse proxy.
   * If list-unsubscribe by email is needed, then one of the following must be met
     * *NotifyBC* can bind to port 25 opening to internet
@@ -87,7 +87,7 @@ Web server listening at: http://localhost:3000
 Now browse to <a href="http://localhost:3000" target="_blank">http://localhost:3000</a> the page displays NotifyBC Web Console.
 
 #### Install Windows Service
-After get the app running interactivelly, if your server is Windows and you want to install the app as a Windows service, run
+After get the app running interactively, if your server is Windows and you want to install the app as a Windows service, run
 
 ```
 npm install -g node-windows
@@ -139,15 +139,15 @@ If using Jenkins, all the software are pre-installed on OpenShift provided Jenki
    notifyBC
    ~ $ cd notifyBC
    ~ $ oc login -u <username> -p <password> <openshift-console-url>
-   ~ $ oc create -f .opensift-templates/notify-bc-build.yml -n <yourprojectname-tools>
-   ~ $ oc create -f .opensift-templates/notify-bc.yml -n <yourprojectname-<env>>
+   ~ $ oc create -f .openshift-templates/notify-bc-build.yml -n <yourprojectname-tools>
+   ~ $ oc create -f .openshift-templates/notify-bc.yml -n <yourprojectname-<env>>
    ```
    After this step you will find an instant app template called *notify-bc-build* available in the *\<yourprojectname-tools\>* project and *notify-bc* in the *\<yourprojectname-\<env\>>* project.
 
    The template *notify-bc.yml* creates a single instance MongoDB. If you want a 3-node MongoDB cluster, use template *notify-bc-mongodb-cluster.yml* instead, i.e. replace last command  with
 
    ```bash
-   ~ $ oc create -f .opensift-templates/notify-bc-mongodb-cluster.yml -n <yourprojectname-<env>>
+   ~ $ oc create -f .openshift-templates/notify-bc-mongodb-cluster.yml -n <yourprojectname-<env>>
    ```
    MongoDB cluster created by this template uses stateful sets. As of OpenShift 1.5, stateful set is in technology preview phase so use the feature with precaution.
 2. create OpenShift apps by clicking *Add to Project* in web console of respective projects, select JavaScript in languages catalog, and click either *notify-bc-build* or *notify-bc* template. Adjust parameters as you see fit.

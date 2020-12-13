@@ -277,7 +277,7 @@ The API operates on following notification data model fields:
   <tr>
     <td>
       <p class="name"><a name="data"/>data</p>
-      <div class="description">the event that triggers the notification, for example, a RSS feed item when the notification is genenrated automatically by RSS cron job. Field <i>data</i> serves two purposes
+      <div class="description">the event that triggers the notification, for example, a RSS feed item when the notification is generated automatically by RSS cron job. Field <i>data</i> serves two purposes
       <ul>
         <li>to replace <a href="../overview/#dynamic-tokens">dynamic tokens</a> in <i>message</i> template fields</li>
         <li>to match against filter defined in subscription field <a href="../api-subscription#broadcastPushNotificationFilter">broadcastPushNotificationFilter</a>, if supplied, for broadcast push notifications to determine if the notification should be delivered to the subscriber</li>
@@ -520,19 +520,4 @@ DELETE /notifications/{id}
 PUT /notifications/{id}
 ```
 
-This API is intended to be only used by admin web console to modify a notification in _new_ state. Notifications in such state are typically future-dated or of channel _in-app_.
-
-- inputs
-  - notification id
-    - parameter name: id
-    - required: true
-    - parameter type: path
-    - data type: string
-  - notification data
-    - parameter name: data
-    - required: true
-    - parameter type: body
-    - data type: object
-- outcome
-
-  _NotifyBC_ process the request same way as [Create/Send Notifications](#createsend-notifications) except that notification data is saved with _id_ supplied in the parameter, replacing existing one.
+  *NotifyBC* process the request same way as [Create/Send Notifications](#createsend-notifications) except that notification data is saved with *id* supplied in the parameter, replacing existing one.
