@@ -1,5 +1,7 @@
 name: Publish to GH Pages
 on: [push]
+env:
+  notifyBCDocVersion_PATH: /version/2-pre-alpha/
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -21,5 +23,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages # The branch the action should deploy to.
           FOLDER: docs/.vuepress/dist # The folder the action should deploy.
-          TARGET_FOLDER: version/2-pre-alpha
+          TARGET_FOLDER: ${{ env.notifyBCDocVersion_PATH }}
           CLEAN: true # Automatically remove deleted files from the deploy branch
