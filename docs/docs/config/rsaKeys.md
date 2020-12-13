@@ -9,6 +9,7 @@ When _NotifyBC_ starts up, it checks if an RSA key pair exists in database as dy
 ```bash
 ~ $ curl -X GET 'http://localhost:3000/api/configurations?filter=%7B%22where%22%3A%20%7B%22name%22%3A%20%22rsa%22%7D%7D'
 ```
+
 or you can open API explorer, expand `GET /configurations` and set filter to
 
 ```json
@@ -38,4 +39,3 @@ In a multi-node deployment, when the cluster is first started up, database is em
 ::: danger Expose RSA public key to only trusted party
 Despite of the adjective public, NotifyBC's public key should only be distributed to trusted third party. The trusted third party should only use the public key at server backend. Using the public key in client-side JavaScript poses a security loophole.
 :::
-
