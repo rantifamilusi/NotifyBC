@@ -104,6 +104,7 @@ module.exports = {
             'miscellaneous/benchmarks',
             'miscellaneous/bulk-import',
             'miscellaneous/developer-notes',
+            'miscellaneous/migration',
           ],
         },
         {title: 'Meta', collapsable: false, children: ['meta/conduct']},
