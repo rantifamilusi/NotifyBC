@@ -1,6 +1,4 @@
----
-title: Migration Guide
----
+# Migration Guide
 
 To migrate from v1 to v2
 

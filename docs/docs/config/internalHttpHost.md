@@ -1,13 +1,14 @@
 ---
-title: Internal HTTP Host
 permalink: /docs/config-internalHttpHost/
 ---
+
+# Internal HTTP Host
 
 By default, HTTP requests submitted by _NotifyBC_ back to itself will be sent to _httpHost_ if defined or the host of the incoming HTTP request that spawns such internal requests. But if config _internalHttpHost_, which has no default value, is defined, for example in file _/server/config.local.js_
 
 ```js
 module.exports = {
-  internalHttpHost: 'http://notifybc:3000'
+  internalHttpHost: 'http://notifybc:3000',
 };
 ```
 

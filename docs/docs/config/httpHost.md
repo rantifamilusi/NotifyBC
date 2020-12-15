@@ -1,7 +1,8 @@
 ---
-title: HTTP Host
 permalink: /docs/config-httpHost/
 ---
+
+# HTTP Host
 
 _httpHost_ config sets the fallback http host used by
 
@@ -19,6 +20,6 @@ Define the config, which has no default value, in _/server/config.local.js_
 
 ```js
 module.exports = {
-  httpHost: 'http://foo.com'
+  httpHost: 'http://foo.com',
 };
 ```
